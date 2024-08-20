@@ -1,6 +1,6 @@
-const Guitar = ({guitar}) => {
+const Guitar = ({guitar, addToCard}) => {
 
- const {name, price, description, image} = guitar
+ const {id, name, price, description, image} = guitar
 
  return (
     <div className="col-md-6 col-lg-4 my-4 row align-items-center">
@@ -14,6 +14,7 @@ const Guitar = ({guitar}) => {
         <button
          type="button"
          className="btn btn-dark w-100"
+         onClick={()=>addToCard(guitar)}
         >Agregar al Carrito</button>
       </div>
     </div>
