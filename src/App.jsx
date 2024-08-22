@@ -1,13 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './COMPONENTS/Header'
 import './App.css'
 import Guitar from './COMPONENTS/Guitar'
 import { db } from './Data/db'
   function App() {
-    const [data, setData] = useState(db)
-    const [cart, setCart] = useState([])
+    const initialCart = ()=>{
+      const localStorageCart = localStorage.getItem('cart');
+      return localStorageCart ? JSON.parse(localStorageCart) : []
+    }
+    const [data] = useState(db)
+    const [cart, setCart] = useState(initialCart)
     const max_value = 5;
     const min_value = 1;
+
+    useEffect(()=>{
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
+
   function addToCard(item){
     const itemExist = cart.findIndex(guitar => guitar.id === item.id)
     if(itemExist >=0){
@@ -51,6 +60,10 @@ import { db } from './Data/db'
     setCart(updateCard)
   }
 
+  function cleanCart(){
+    setCart([])
+  }
+
   return (
     <>
     <Header 
@@ -58,6 +71,7 @@ import { db } from './Data/db'
       removeFromCart = {removeFromCart}
       increaseQuantity= {increaseQuantity}
       decreaseQuantity= {decreaseQuantity}
+      cleanCart= {cleanCart}
     />
     <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
