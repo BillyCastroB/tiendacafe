@@ -1,69 +1,20 @@
-import { useEffect, useState } from 'react'
+
 import Header from './COMPONENTS/Header'
 import './App.css'
 import Guitar from './COMPONENTS/Guitar'
-import { db } from './Data/db'
+import useCart from './hooks/useCart'
   function App() {
-    const initialCart = ()=>{
-      const localStorageCart = localStorage.getItem('cart');
-      return localStorageCart ? JSON.parse(localStorageCart) : []
-    }
-    const [data] = useState(db)
-    const [cart, setCart] = useState(initialCart)
-    const max_value = 5;
-    const min_value = 1;
-
-    useEffect(()=>{
-      localStorage.setItem('cart', JSON.stringify(cart))
-    }, [cart])
-
-  function addToCard(item){
-    const itemExist = cart.findIndex(guitar => guitar.id === item.id)
-    if(itemExist >=0){
-      if(cart[itemExist].quantity >= max_value) return
-      const updateCart = [...cart];
-      updateCart[itemExist].quantity++;
-      setCart(updateCart);
-    }else{
-      item.quantity = 1;
-      setCart([...cart, item])
-    }
-  }
-
-  function removeFromCart(id){
-    setCart(prevCart=> prevCart.filter(guitar=> guitar.id !== id))
-  }
-
-  function increaseQuantity(id){
-    const updateCard = cart.map( guitar => {
-      if(guitar.id == id && guitar.quantity < max_value){
-        return{
-          ...guitar,
-          quantity: guitar.quantity + 1
-        }
-      }
-      return guitar;
-    })
-    setCart(updateCard)
-  }
-
-  function decreaseQuantity(id){
-    const updateCard = cart.map( guitar => {
-      if(guitar.id == id && guitar.quantity > min_value){
-        return{
-          ...guitar,
-          quantity: guitar.quantity - 1
-        }
-      }
-      return guitar;
-    })
-    setCart(updateCard)
-  }
-
-  function cleanCart(){
-    setCart([])
-  }
-
+    const {
+      data,
+      cart,
+      addToCard,
+      removeFromCart,
+      increaseQuantity,
+      decreaseQuantity,
+      cleanCart,
+      isEmpty,
+      cartTotal
+    } = useCart()
   return (
     <>
     <Header 
@@ -72,9 +23,11 @@ import { db } from './Data/db'
       increaseQuantity= {increaseQuantity}
       decreaseQuantity= {decreaseQuantity}
       cleanCart= {cleanCart}
+      isEmpty={isEmpty}
+      cartTotal={cartTotal}
     />
     <main className="container-xl mt-5">
-        <h2 className="text-center">Nuestra Colección</h2>
+        <h2 className="text-center">Nuestra Variedad</h2>
 
         <div className="row mt-5">
           {data.map(guitar =>(
@@ -89,7 +42,7 @@ import { db } from './Data/db'
 
     <footer className="bg-dark mt-5 py-5">
         <div className="container-xl">
-            <p className="text-white text-center fs-4 mt-4 m-md-0">GuitarLA - Todos los derechos Reservados</p>
+            <p className="text-white text-center fs-4 mt-4 m-md-0">Café San Antonio - Todos los derechos Reservados</p>
         </div>
     </footer>
     </>

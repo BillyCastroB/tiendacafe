@@ -1,8 +1,6 @@
-import { useMemo } from "react";
-const Header = ({cart, removeFromCart, increaseQuantity, decreaseQuantity, cleanCart}) => {
+import useCart from "../hooks/useCart";
 
-    const isEmpty = useMemo( ()=> cart.lengt === 0, [cart]);
-    const cartTotal = useMemo( ()=>cart.reduce((total, item)=> total + (item.quantity * item.price),0), [cart])
+const Header = ({cart, removeFromCart, increaseQuantity, decreaseQuantity, cleanCart,isEmpty, cartTotal}) => {
 
  return (
   <header className="py-5 header">
@@ -10,7 +8,7 @@ const Header = ({cart, removeFromCart, increaseQuantity, decreaseQuantity, clean
             <div className="row justify-content-center justify-content-md-between">
                 <div className="col-8 col-md-3">
                     <a href="index.html">
-                        <img className="img-fluid" src="/img/logo.svg" alt="imagen logo" />
+                        <img className="img-fluid" src="/img/logoCafe.png" alt="imagen logo" />
                     </a>
                 </div>
                 <nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
@@ -41,7 +39,7 @@ const Header = ({cart, removeFromCart, increaseQuantity, decreaseQuantity, clean
                                                             <td>
                                                                 <img 
                                                                 className="img-fluid" 
-                                                                src={`/img/${guitar.image}.jpg` }
+                                                                src={`/img/${guitar.image}.webp` }
                                                                 alt="imagen guitarra" />
                                                             </td>
                                                             <td>{guitar.name}</td>

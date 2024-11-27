@@ -2,7 +2,10 @@
 .fw-black {
   font-weight: 900;
 }
-
+.cantidad{
+  font-weight: bold;
+  font-style: italic;
+}
 .btn-dark {
   text-transform: uppercase;
 }
@@ -754,7 +757,7 @@ button:not(:disabled),
   }
 }
 .header {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/img/header.jpg");
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/img/cafe-cuscoFondo.jpg");
   background-position: 50%;
   background-size: cover;
   position: relative;
