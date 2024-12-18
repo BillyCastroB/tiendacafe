@@ -26,7 +26,7 @@ export const Pago = () => {
     }
     const enviarEmail = async()=>{
         console.log('enviando email');
-        const result = await cliente.post('http://localhost:4000/email', { "email": email, "nombre": nombre });
+        const result = await cliente.post('https://tiendacefebackend.onrender.com/email', { "email": email, "nombre": nombre });
         console.log(result);
         Swal.fire({
             title: "¡ Gracias, Verifica tu EMAIL.. !",
