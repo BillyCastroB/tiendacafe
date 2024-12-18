@@ -1,13 +1,19 @@
+import { Link } from "react-router-dom";
 import useCart from "../hooks/useCart";
-
+import './Header.css'
 const Header = ({cart, removeFromCart, increaseQuantity, decreaseQuantity, cleanCart,isEmpty, cartTotal}) => {
 
+    const comprar = ()=>{
+        console.log("comprando..");
+    }
  return (
-  <header className="py-5 header">
+
+    <>
+      <header className="py-5 header">
         <div className="container-xl">
             <div className="row justify-content-center justify-content-md-between">
                 <div className="col-8 col-md-3">
-                    <a href="index.html">
+                    <a href="/">
                         <img className="img-fluid" src="/img/logoCafe.png" alt="imagen logo" />
                     </a>
                 </div>
@@ -16,7 +22,6 @@ const Header = ({cart, removeFromCart, increaseQuantity, decreaseQuantity, clean
                         className="carrito"
                     >
                         <img className="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
-
                         <div id="carrito" className="bg-white p-3">
                             {
                                 isEmpty? (
@@ -74,24 +79,28 @@ const Header = ({cart, removeFromCart, increaseQuantity, decreaseQuantity, clean
                                                             </td>
                                                         </tr>
                                                     ))}
-
                                                 </tbody>
                                             </table>
                                                 
                                             <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal}</span></p>
                                             <button className="btn btn-dark w-100 mt-3 p-2"
                                             onClick={cleanCart}>Vaciar Carrito</button>
+                                            <Link to={'/pago'} className="btn btn-dark w-100 mt-3 p-2">Comprar</Link>
                                         </>
                                 )
-                            }
-                           
-                            
+                            }                                
+                            </div>
                         </div>
-                    </div>
-                </nav>
+                    </nav>
+                </div>
             </div>
+        </header>
+        <div className="navegacionPaginas">
+            <Link className="btn-navegador" to={'/'}>Café</Link>
+            <Link className="btn-navegador" to={'/sal'}>Sal</Link>
         </div>
-    </header>
+    </>
+
  );
 }
  

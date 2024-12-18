@@ -73,3 +73,54 @@ export const db = [
  },
 
 ]
+
+export const dbSal = [
+    {
+        id: 1,
+        name: 'Sal de Maras granulado',
+        image: 'salMaras',
+        cantidad: '250gr',
+        description: 'Un café convencional elaborado con granos comunes, tostado en maquina industrial, conocido por su sabor estándar y accesible para el consumo cotidiano.',
+        price: 2.00,
+    },
+    {
+        id: 2,
+        name: 'Sal de Maras Granulado',
+        image: 'salMaras',
+        cantidad: '500gr',
+        description: 'Un café convencional elaborado con granos comunes, tostado en maquina industrial, conocido por su sabor estándar y accesible para el consumo cotidiano.',
+        price: 4.00,
+    },
+    {
+        id: 3,
+        name: 'Sal de Maras Granulado',
+        image: 'salMaras',
+        cantidad: '1 Kg',
+        description: 'Un café convencional elaborado con granos comunes, tostado en maquina industrial, conocido por su sabor estándar y accesible para el consumo cotidiano.',
+        price: 8.00,
+    },
+    {
+        id: 4,
+        name: 'Sal Blanca de Maras',
+        image: 'salMaras',
+        cantidad: '250gr',
+        description: 'Un café convencional elaborado con granos comunes, típicamente sometido a un tostado más intenso que resalta notas amargas, lo que lo convierte en una opción robusta y accesible para quienes disfrutan de un sabor más fuerte.',
+        price: 3.50,
+    },
+    {
+        id: 5,
+        name: 'Sal Blanca de Maras',
+        image: 'salMaras',
+        cantidad: '500gr',
+        description: 'Un café convencional elaborado con granos comunes, típicamente sometido a un tostado más intenso que resalta notas amargas, lo que lo convierte en una opción robusta y accesible para quienes disfrutan de un sabor más fuerte.',
+        price: 6.50,
+    },
+    {
+        id: 6,
+        name: 'Sal Blanca de Maras',
+        image: 'salMaras',
+        cantidad: '1 Kg',
+        description: 'Un café convencional elaborado con granos comunes, típicamente sometido a un tostado más intenso que resalta notas amargas, lo que lo convierte en una opción robusta y accesible para quienes disfrutan de un sabor más fuerte.',
+        price: 12.00,
+    },
+   ]

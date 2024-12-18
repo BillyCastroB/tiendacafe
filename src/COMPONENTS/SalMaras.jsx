@@ -1,8 +1,9 @@
-const Guitar = ({guitar, addToCard}) => {
+import React from 'react'
+export const SalMaras = ({sal, addToCard}) => {
 
- const {name, price, description, image, cantidad} = guitar
+  const {name, price, description, image, cantidad} = sal
 
- return (
+  return (
     <div className="col-md-6 col-lg-4 my-4 row align-items-center">
       <div className="col-4">
         <img className="img-fluid" src={`/img/${image}.webp`} alt="imagen guitarra" />
@@ -15,11 +16,9 @@ const Guitar = ({guitar, addToCard}) => {
         <button
          type="button"
          className="btn btn-dark w-100"
-         onClick={()=>addToCard(guitar)}
+         onClick={()=>addToCard(sal)}
         >Agregar al Carrito</button>
       </div>
     </div>
- );
+  )
 }
-
-export default Guitar;
