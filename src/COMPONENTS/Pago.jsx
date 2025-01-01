@@ -85,7 +85,7 @@ export const Pago = () => {
                         <input className='ValidarPago' type="submit" onSubmit={validar}  value='Registrar Email'/>
                     </form>
                     <div>
-                        <img className='imgYape' src="./img/yape.jpg" alt="" />
+                        <img className='imgYape' src="./img/yape2.png" alt="" />
                     </div>
                     <button 
                         type='button' 
